@@ -1,0 +1,17 @@
+.app{
+    min-height:100vh;
+    background:#f5f7fb;
+}
+
+/* Main content below navbar */
+.main-content{
+    padding:30px;
+}
+
+/* Reusable section card */
+.section-card{
+    background:white;
+    border-radius:15px;
+    padding:25px;
+    box-shadow:0 5px 20px rgba(0,0,0,.05);
+}
