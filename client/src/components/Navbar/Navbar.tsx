@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { FaRobot, FaBell, FaUserCircle } from "react-icons/fa";
 import './Navbar.css';
 
 const Navbar = () => {
@@ -8,6 +9,7 @@ const Navbar = () => {
 
         {/* Logo */}
         <Link className="navbar-brand fw-bold d-flex align-items-center" to="/">
+          <FaRobot className="me-2 text-info" size={24} />
           InterviewAce AI
         </Link>
 
@@ -57,12 +59,14 @@ const Navbar = () => {
           <div className="d-flex align-items-center">
 
             <button className="btn btn-outline-light position-relative me-3">
+              <FaBell />
               <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                 2
               </span>
             </button>
 
             <button className="btn btn-outline-info d-flex align-items-center">
+              <FaUserCircle className="me-2" />
               Profile
             </button>
 
