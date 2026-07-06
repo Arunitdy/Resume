@@ -2,6 +2,8 @@ import { useState } from "react";
 import { FaCheckCircle } from "react-icons/fa";
 import UploadCard from "./components/UploadCard";
 import useAuth from "../../hooks/useAuth";
+import type { ATSResponse } from "../../services/resumeService";
+import ATSResult from "./components/ATSResult";
 import { analyzeResume } from "../../services/resumeService";
 import "./ResumeAnalyzer.css";
 
@@ -10,48 +12,49 @@ const ResumeAnalyzer = () => {
   const [jobDescription, setJobDescription] = useState("");
   const [loading, setLoading] = useState(false);
 
+  const [result, setResult] =
+      useState<ATSResponse | null>(null);
+
   useAuth();
 
      
 
-  const handleAnalyze = async () => {
+    const handleAnalyze = async () => {
 
-      if (!resume) {
-          alert("Upload Resume");
-          return;
-      }
+        if (!resume) {
+            alert("Please upload your resume.");
+            return;
+        }
 
-      if (!jobDescription.trim()) {
-          alert("Paste Job Description");
-          return;
-      }
+        if (!jobDescription.trim()) {
+            alert("Please paste the Job Description.");
+            return;
+        }
 
-      try {
+        try {
 
-          setLoading(true);
+            setLoading(true);
 
-          const result = await analyzeResume(
-              resume,
-              jobDescription
-          );
+            const response = await analyzeResume(
+                resume,
+                jobDescription
+            );
 
-          console.log(result);
+            setResult(response);
 
-          // Later we'll navigate to Result page
+        } catch (error) {
 
-      } catch (error) {
+            console.error(error);
 
-          console.error(error);
+            alert("Unable to analyze resume.");
 
-          alert("Analysis Failed");
+        } finally {
 
-      } finally {
+            setLoading(false);
 
-          setLoading(false);
+        }
 
-      }
-
-  };
+    };
 
   return (
     <div className="container py-5">
@@ -131,12 +134,35 @@ const ResumeAnalyzer = () => {
       {/* Analyze Button */}
       <div className="text-center mt-5">
 
+        
         <button
-          className="btn btn-success btn-lg px-5"
-          disabled={!resume || jobDescription.trim() === ""}
-          onClick={handleAnalyze}
+            className="btn btn-success btn-lg px-5"
+            disabled={
+                loading ||
+                !resume ||
+                jobDescription.trim() === ""
+            }
+            onClick={handleAnalyze}
         >
-          Analyze ATS Score
+
+            {
+                loading ?
+
+                <>
+                    <span
+                        className="spinner-border spinner-border-sm me-2"
+                    />
+
+                    Analyzing Resume...
+
+                </>
+
+                :
+
+                "Analyze ATS Score"
+
+            }
+
         </button>
 
       </div>
@@ -195,6 +221,7 @@ const ResumeAnalyzer = () => {
         </div>
 
       </div>
+      { result && <ATSResult result={result}/> }
 
     </div>
   );

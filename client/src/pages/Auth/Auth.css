@@ -145,9 +145,8 @@
 
 .form-control{
 
-    border-left:none;
 
-    border-radius:0 12px 12px 0;
+    border-radius:12px;
 
     height:200px;
 
