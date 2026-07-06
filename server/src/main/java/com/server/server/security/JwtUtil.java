@@ -29,12 +29,12 @@ public class JwtUtil {
 
     // Extract username (email) from token
     public String extractEmail(String token) {
-        return extractClaim(token, Claims::getSubject);
+        return extractClaim(token, claims -> claims.getSubject());
     }
 
     // Extract expiration date from token
     public Date extractExpiration(String token) {
-        return extractClaim(token, Claims::getExpiration);
+        return extractClaim(token, claims -> claims.getExpiration());
     }
 
     // Extract specific claim from token
