@@ -20,6 +20,7 @@ export interface RegisterRequest {
 export const login = async (
     data: LoginRequest
 ): Promise<LoginResponse> => {
+    console.log("authservice Login request data:", data); // Debugging line
 
     const response = await api.post<LoginResponse>(
         "/auth/login",
@@ -32,7 +33,7 @@ export const login = async (
 export const register = async (
     data: RegisterRequest
 ) => {
-
+    console.log("authservice Register request data:", data); // Debugging line
     const response = await api.post(
         "/auth/register",
         data
