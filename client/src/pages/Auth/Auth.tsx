@@ -55,7 +55,7 @@ const Auth = () => {const [isLogin, setIsLogin] = useState(true);
               alert("Login Successful");
 
               // Later we'll replace this with React Router navigation
-              window.location.href="/dashboard";
+              window.location.href="/";
 
           }
 

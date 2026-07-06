@@ -1,4 +1,6 @@
-import { useState } from 'react'
+import { useState } from 'react';
+import { Routes, Route } from "react-router-dom";
+
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import ResumeAnalyzer from './pages/ResumeAnalyzer/ResumeAnalyzer';
@@ -11,8 +13,10 @@ function App() {
   return (
     <>
       < Navbar/>
-      {/*< ResumeAnalyzer/>*/}
-      < Auth/>
+      <Routes>
+        <Route path="/login" element={<Auth />} />
+        <Route path="/" element={<ResumeAnalyzer />} />
+      </Routes>
       < Footer/>
     </>
   )
