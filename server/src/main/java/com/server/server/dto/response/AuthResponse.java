@@ -1,15 +1,25 @@
-package com.server.server;
+package com.server.server.dto.response;
 
 public class AuthResponse {
     private String message;
     private boolean success;
     private String email;
     private String name;
+    private String token;  // NEW: JWT token
 
     // Default constructor
     public AuthResponse() {}
 
-    // Constructor with parameters
+    // Constructor with all fields (including token)
+    public AuthResponse(String message, boolean success, String email, String name, String token) {
+        this.message = message;
+        this.success = success;
+        this.email = email;
+        this.name = name;
+        this.token = token;
+    }
+
+    // Overloaded constructor without token (for error responses)
     public AuthResponse(String message, boolean success, String email, String name) {
         this.message = message;
         this.success = success;
@@ -48,5 +58,13 @@ public class AuthResponse {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 }

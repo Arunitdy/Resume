@@ -1,13 +1,22 @@
-package com.server.server;
+package com.server.server.dto.request;
 
-public class LoginRequest {
+public class RegisterRequest {
+    private String name;
     private String email;
     private String password;
 
-    // Default constructor (required for Jackson)
-    public LoginRequest() {}
+    // Default constructor
+    public RegisterRequest() {}
 
     // Getters and Setters
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getEmail() {
         return email;
     }

@@ -70,12 +70,10 @@ const Auth = () => {const [isLogin, setIsLogin] = useState(true);
               alert("Account created successfully!");
               console.log("Registration successful", response);
 
-              // Switch to login screen
-              setIsLogin(true);
-
-              // Clear password fields
-              setPassword("");
-              setConfirmPassword("");
+              // Save JWT
+              localStorage.setItem("token", response.token);
+              localStorage.setItem("name", response.name);
+              localStorage.setItem("email", response.email);
               
               window.location.href = "/dashboard";
 
