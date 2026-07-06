@@ -15,7 +15,7 @@ function App() {
       < Navbar/>
       <Routes>
         <Route path="/login" element={<Auth />} />
-        <Route path="/dashboard" element={<ResumeAnalyzer />} />
+        <Route path="/resumeanalyzer" element={<ResumeAnalyzer />} />
       </Routes>
       < Footer/>
     </>
