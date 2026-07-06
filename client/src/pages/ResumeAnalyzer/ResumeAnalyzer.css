@@ -1,0 +1,65 @@
+.upload-card{
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:35px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    text-align:center;
+
+    height:100%;
+
+}
+
+.drop-zone{
+
+    border:2px dashed #0d6efd;
+
+    border-radius:15px;
+
+    padding:45px;
+
+    transition:.3s;
+
+    cursor:pointer;
+
+}
+
+.dragging{
+
+    background:#eaf3ff;
+
+    border-color:#198754;
+
+}
+
+.uploaded-file{
+
+    padding:30px;
+
+}
+
+.upload-card h4{
+
+    margin-bottom:25px;
+
+    font-weight:700;
+
+}
+
+.upload-card p{
+
+    color:gray;
+
+}
+
+.btn-lg{
+
+    padding:12px 35px;
+
+    font-size:18px;
+
+}
