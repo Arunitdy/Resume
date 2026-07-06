@@ -221,8 +221,6 @@ const ResumeAnalyzer = () => {
         </div>
 
       </div>
-      { result && <ATSResult result={result}/> }
-
     </div>
   );
 };
