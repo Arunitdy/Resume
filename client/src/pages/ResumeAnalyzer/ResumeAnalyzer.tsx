@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { FaCheckCircle } from "react-icons/fa";
 import UploadCard from "./components/UploadCard";
 import "./ResumeAnalyzer.css";
 
@@ -10,6 +11,8 @@ const ResumeAnalyzer = () => {
     if (!resume) {
       alert("Please upload your resume.");
       return;
+    } else {
+        alert(`Resume uploaded: ${resume.name}`);
     }
 
     if (jobDescription.trim() === "") {
@@ -136,10 +139,14 @@ const ResumeAnalyzer = () => {
                 <div className="col-md-6">
 
                   <ul>
-                    <li>✅ ATS Compatibility Score</li>
-                    <li>✅ Resume Keyword Matching</li>
-                    <li>✅ Missing Technical Skills</li>
-                    <li>✅ Resume Formatting Review</li>
+                    <li>
+                        <FaCheckCircle className="me-2" /> ATS Compatibility Score</li>
+                    <li>
+                        <FaCheckCircle className="me-2" /> Resume Keyword Matching</li>
+                    <li>
+                        <FaCheckCircle className="me-2" /> Missing Technical Skills</li>
+                    <li>
+                        <FaCheckCircle className="me-2" /> Resume Formatting Review</li>
                   </ul>
 
                 </div>
@@ -147,10 +154,14 @@ const ResumeAnalyzer = () => {
                 <div className="col-md-6">
 
                   <ul>
-                    <li>✅ AI Resume Suggestions</li>
-                    <li>✅ Project Improvement Tips</li>
-                    <li>✅ Resume Optimization Report</li>
-                    <li>✅ Personalized Learning Roadmap</li>
+                    <li>
+                        <FaCheckCircle className="me-2" /> AI Resume Suggestions</li>
+                    <li>
+                        <FaCheckCircle className="me-2" /> Project Improvement Tips</li>
+                    <li>
+                        <FaCheckCircle className="me-2" /> Resume Optimization Report</li>
+                    <li>
+                        <FaCheckCircle className="me-2" /> Personalized Learning Roadmap</li>
                   </ul>
 
                 </div>

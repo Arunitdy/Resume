@@ -53,6 +53,7 @@ const UploadCard = ({ onFileSelect }: UploadCardProps) => {
     return <FaFileWord size={55} className="text-primary" />;
   };
 
+
   return (
     <div className="upload-card">
 
@@ -124,7 +125,17 @@ const UploadCard = ({ onFileSelect }: UploadCardProps) => {
 
             <button
               className="btn btn-outline-primary"
-              disabled
+              
+              onClick={ () => {
+                if (!file) return;
+                alert("skjdfn");
+
+                const fileURL = URL.createObjectURL(file);
+                window.open(fileURL, "_blank");
+
+                // Free the object URL after a short delay
+                setTimeout(() => URL.revokeObjectURL(fileURL), 1000);
+              }}
             >
               <FaEye className="me-2" />
               Preview
