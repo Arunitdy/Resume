@@ -1,11 +1,16 @@
 import { useState } from "react";
 import { FaCheckCircle } from "react-icons/fa";
 import UploadCard from "./components/UploadCard";
+import useAuth from "../../hooks/useAuth";
 import "./ResumeAnalyzer.css";
 
 const ResumeAnalyzer = () => {
   const [resume, setResume] = useState<File | null>(null);
   const [jobDescription, setJobDescription] = useState("");
+
+  useAuth();
+
+     
 
   const handleAnalyze = () => {
     if (!resume) {

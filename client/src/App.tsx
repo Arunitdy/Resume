@@ -1,4 +1,4 @@
-import { useState } from 'react';
+
 import { Routes, Route } from "react-router-dom";
 
 import Navbar from './components/Navbar/Navbar';
@@ -8,7 +8,6 @@ import Auth from './pages/Auth/Auth';
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
