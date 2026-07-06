@@ -9,6 +9,7 @@ import {
   FaEye,
   FaEyeSlash,
 } from "react-icons/fa";
+
 import { login } from "../../services/authService";
 import "./Auth.css";
 
@@ -38,14 +39,8 @@ const Auth = () => {const [isLogin, setIsLogin] = useState(true);
 
               setLoading(true);
               console.log("auth request:", { email, password });
-              
-              const response = await login({
 
-                  email,
-
-                  password
-
-              });
+              const response = await login({ email, password });
 
               localStorage.setItem("token",response.token);
 
@@ -58,34 +53,15 @@ const Auth = () => {const [isLogin, setIsLogin] = useState(true);
               // Later we'll replace this with React Router navigation
               window.location.href="/";
 
-          }
+          } catch(error) { 
+            alert("Invalid Email or Password");
 
-          catch(error){
-
-              alert("Invalid Email or Password");
-
-          }
-
-          finally{
-
+          } finally {
               setLoading(false);
-
           }
 
       } else {
-
-          console.log({
-
-              name,
-
-              email,
-
-              password,
-
-              confirmPassword
-
-          });
-
+          console.log("auth request:", {name, email, password, confirmPassword});
       }
 
   };
