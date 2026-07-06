@@ -10,7 +10,7 @@ import {
   FaEyeSlash,
 } from "react-icons/fa";
 
-import { login } from "../../services/authService";
+import { login, register} from "../../services/authService";
 import "./Auth.css";
 
 const Auth = () => {const [isLogin, setIsLogin] = useState(true);
@@ -30,42 +30,66 @@ const Auth = () => {const [isLogin, setIsLogin] = useState(true);
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
 
-      e.preventDefault();
+      try {
+          setLoading(true);
 
-      if(isLogin){
+          if (isLogin) {
 
-          try{
+              // Login
+              const response = await login({
+                  email,
+                  password,
+              });
 
-              setLoading(true);
-              console.log("auth request:", { email, password });
-
-              const response = await login({ email, password });
-
-              localStorage.setItem("token",response.token);
-
-              localStorage.setItem("name",response.name);
-
-              localStorage.setItem("email",response.email);
+              localStorage.setItem("token", response.token);
+              localStorage.setItem("name", response.name);
+              localStorage.setItem("email", response.email);
 
               alert("Login Successful");
 
-              // Later we'll replace this with React Router navigation
-              window.location.href="/";
+              window.location.href = "/dashboard";
 
-          } catch(error) { 
-            alert("Invalid Email or Password");
+          } else {
 
-          } finally {
-              setLoading(false);
+              // Validation
+              if (password !== confirmPassword) {
+                  alert("Passwords do not match");
+                  return;
+              }
+
+              await register({
+                  name,
+                  email,
+                  password,
+              });
+
+              alert("Account created successfully!");
+
+              // Switch to login screen
+              setIsLogin(true);
+
+              // Clear password fields
+              setPassword("");
+              setConfirmPassword("");
+
           }
 
-      } else {
-          console.log("auth request:", {name, email, password, confirmPassword});
+      } catch (error: any) {
+
+          alert(
+              error.response?.data?.message ||
+              "Something went wrong."
+          );
+
+      } finally {
+
+          setLoading(false);
+
       }
-
   };
-
+  
   return (
     <div className="auth-page">
 
