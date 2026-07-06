@@ -37,12 +37,8 @@ const Auth = () => {const [isLogin, setIsLogin] = useState(true);
           try{
 
               setLoading(true);
-              console.log("auth request:", {
-
-                  email,
-                  password
-
-              });
+              console.log("auth request:", { email, password });
+              
               const response = await login({
 
                   email,
