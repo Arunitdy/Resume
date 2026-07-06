@@ -76,6 +76,8 @@ const Auth = () => {const [isLogin, setIsLogin] = useState(true);
               // Clear password fields
               setPassword("");
               setConfirmPassword("");
+              
+              window.location.href = "/dashboard";
 
           }
 
