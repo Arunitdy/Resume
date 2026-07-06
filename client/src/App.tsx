@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import ResumeAnalyzer from './pages/ResumeAnalyzer/ResumeAnalyzer';
+import Auth from './pages/Auth/Auth';
 import './App.css'
 
 function App() {
@@ -10,7 +11,8 @@ function App() {
   return (
     <>
       < Navbar/>
-      < ResumeAnalyzer/>
+      {/*< ResumeAnalyzer/>*/}
+      < Auth/>
       < Footer/>
     </>
   )

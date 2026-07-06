@@ -1,0 +1,296 @@
+/* ===========================
+   Background
+=========================== */
+
+.auth-page {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f172a, #1e3a8a, #2563eb);
+}
+
+/* ===========================
+   Left Section
+=========================== */
+
+.auth-left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 60px;
+}
+
+.auth-left-content {
+    max-width: 550px;
+}
+
+.auth-left-content h1 {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.auth-left-content h4 {
+    font-size: 1.6rem;
+    color: #cbd5e1;
+}
+
+.auth-left-content p {
+    margin-top: 25px;
+    line-height: 1.9;
+    color: #dbeafe;
+    font-size: 18px;
+}
+
+/* ===========================
+   Right Section
+=========================== */
+
+.auth-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+/* ===========================
+   Card
+=========================== */
+
+.auth-card {
+
+    width: 100%;
+    max-width: 480px;
+
+    padding: 45px;
+
+    border-radius: 20px;
+
+    background: rgba(255,255,255,.95);
+
+    backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 20px 45px rgba(0,0,0,.15);
+
+    transition: .35s;
+}
+
+.auth-card:hover{
+
+    transform: translateY(-4px);
+
+}
+
+.auth-card h2{
+
+    font-weight:700;
+
+    color:#1e293b;
+
+}
+
+/* ===========================
+   Inputs
+=========================== */
+
+.form-label{
+
+    font-weight:600;
+
+    color:#334155;
+
+}
+
+.input-group{
+
+    margin-top:8px;
+
+}
+/* Password Toggle Button */
+
+.input-group .btn {
+
+    border-left: none;
+
+    border-radius: 0 12px 12px 0;
+
+    background: #fff;
+
+    color: #6c757d;
+
+}
+
+.input-group .btn:hover {
+
+    background: #f8f9fa;
+
+    color: #0d6efd;
+
+}
+
+.input-group .btn:focus {
+
+    box-shadow: none;
+
+}
+
+.input-group-text{
+
+    background:#f8fafc;
+
+    border-right:none;
+
+    border-radius:12px 0 0 12px;
+
+}
+
+.form-control{
+
+    border-left:none;
+
+    border-radius:0 12px 12px 0;
+
+    height:50px;
+
+    box-shadow:none;
+
+}
+
+.form-control:focus{
+
+    box-shadow:none;
+
+    border-color:#0d6efd;
+
+}
+
+/* ===========================
+   Buttons
+=========================== */
+
+.btn-primary{
+
+    height:52px;
+
+    border-radius:12px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.btn-primary:hover{
+
+    transform:translateY(-2px);
+
+}
+
+.btn-outline-dark{
+
+    height:50px;
+
+    border-radius:12px;
+
+    font-weight:600;
+
+}
+
+/* ===========================
+   Links
+=========================== */
+
+.btn-link{
+
+    text-decoration:none;
+
+    font-weight:600;
+
+}
+
+.btn-link:hover{
+
+    text-decoration:underline;
+
+}
+
+/* ===========================
+   Checkbox
+=========================== */
+
+.form-check-label{
+
+    font-size:14px;
+
+}
+
+/* ===========================
+   Forgot Password
+=========================== */
+
+.auth-card a{
+
+    text-decoration:none;
+
+    font-size:14px;
+
+}
+
+.auth-card a:hover{
+
+    text-decoration:underline;
+
+}
+
+/* ===========================
+   Divider
+=========================== */
+
+.text-muted{
+
+    font-size:14px;
+
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media(max-width:992px){
+
+    .auth-page{
+
+        background:#f5f7fb;
+
+    }
+
+    .auth-right{
+
+        padding:20px;
+
+    }
+
+    .auth-card{
+
+        padding:35px 25px;
+
+        border-radius:18px;
+
+    }
+
+}
+
+@media(max-width:576px){
+
+    .auth-card{
+
+        padding:25px 18px;
+
+    }
+
+    .auth-card h2{
+
+        font-size:1.8rem;
+
+    }
+
+}
