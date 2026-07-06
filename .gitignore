@@ -1,2 +1,15 @@
+# Environment variables
 .env
-.env.*
+
+# IDE files
+.idea/
+*.iml
+
+# Build files
+target/
+*.jar
+*.war
+
+# Logs
+logs/
+*.log
