@@ -49,7 +49,7 @@ const Dashboard = () => {
                     return;
                 }
 
-                navigate("/resume-analyzer");
+                navigate("/resumeanalyzer");
 
             }}
         >
@@ -84,19 +84,17 @@ const Dashboard = () => {
                     <Button
                         variant="secondary"
                         onClick={() => setShowLoginModal(false)}
+                        className="modal-btn"
                     >
-
                         Cancel
-
                     </Button>
 
                     <Button
                         variant="primary"
                         onClick={() => navigate("/login")}
+                        className="modal-btn"
                     >
-
                         Login
-
                     </Button>
 
                 </Modal.Footer>

@@ -51,7 +51,7 @@ const Auth = () => {const [isLogin, setIsLogin] = useState(true);
 
               alert("Login Successful");
 
-              window.location.href = "/dashboard";
+              window.location.href = "/";
 
           } else {
 
@@ -75,7 +75,7 @@ const Auth = () => {const [isLogin, setIsLogin] = useState(true);
               localStorage.setItem("name", response.name);
               localStorage.setItem("email", response.email);
               
-              window.location.href = "/dashboard";
+              window.location.href = "/";
 
           }
 

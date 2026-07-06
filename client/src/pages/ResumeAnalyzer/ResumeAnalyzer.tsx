@@ -2,40 +2,55 @@ import { useState } from "react";
 import { FaCheckCircle } from "react-icons/fa";
 import UploadCard from "./components/UploadCard";
 import useAuth from "../../hooks/useAuth";
+import { analyzeResume } from "../../services/resumeService";
 import "./ResumeAnalyzer.css";
 
 const ResumeAnalyzer = () => {
   const [resume, setResume] = useState<File | null>(null);
   const [jobDescription, setJobDescription] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useAuth();
 
      
 
-  const handleAnalyze = () => {
-    if (!resume) {
-      alert("Please upload your resume.");
-      return;
-    } else {
-        alert(`Resume uploaded: ${resume.name}`);
-    }
+  const handleAnalyze = async () => {
 
-    if (jobDescription.trim() === "") {
-      alert("Please paste the Job Description.");
-      return;
-    }
+      if (!resume) {
+          alert("Upload Resume");
+          return;
+      }
 
-    console.log("Resume:", resume);
-    console.log("Job Description:", jobDescription);
+      if (!jobDescription.trim()) {
+          alert("Paste Job Description");
+          return;
+      }
 
-    // TODO:
-    // Call Spring Boot API here
-    //
-    // POST /api/ats/analyze
-    //
-    // Send:
-    // resume
-    // jobDescription
+      try {
+
+          setLoading(true);
+
+          const result = await analyzeResume(
+              resume,
+              jobDescription
+          );
+
+          console.log(result);
+
+          // Later we'll navigate to Result page
+
+      } catch (error) {
+
+          console.error(error);
+
+          alert("Analysis Failed");
+
+      } finally {
+
+          setLoading(false);
+
+      }
+
   };
 
   return (
