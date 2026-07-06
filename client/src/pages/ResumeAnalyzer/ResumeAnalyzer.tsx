@@ -166,7 +166,7 @@ const ResumeAnalyzer = () => {
         </button>
 
       </div>
-
+      { result && <ATSResult result={result}/> }
       {/* Information Section */}
       <div className="row mt-5">
 
