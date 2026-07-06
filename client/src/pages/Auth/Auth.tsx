@@ -43,6 +43,8 @@ const Auth = () => {const [isLogin, setIsLogin] = useState(true);
                   password,
               });
 
+              console.log("Login Response:", response);
+
               localStorage.setItem("token", response.token);
               localStorage.setItem("name", response.name);
               localStorage.setItem("email", response.email);
@@ -59,13 +61,14 @@ const Auth = () => {const [isLogin, setIsLogin] = useState(true);
                   return;
               }
 
-              await register({
+              const response = await register({
                   name,
                   email,
                   password,
               });
 
               alert("Account created successfully!");
+              console.log("Registration successful", response);
 
               // Switch to login screen
               setIsLogin(true);
