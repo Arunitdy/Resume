@@ -9,19 +9,11 @@ public class ResumeService {
 
     public ATSResponse analyzeResume(
             MultipartFile resume,
-            String jobDescription
-    ){
+            String jobDescription) {
 
         return new ATSResponse(
-
                 "Resume received successfully",
-
                 resume.getOriginalFilename(),
-
-                jobDescription.length()
-
-        );
-
+                jobDescription.length());
     }
-
 }
