@@ -7,10 +7,12 @@ import Skills from "./components/Skills";
 import CareerPreference from "./components/CareerPreference";
 import ResumeCard from "./components/ResumeCard";
 import SocialLinks from "./components/SocialLinks";
+import useAuth from "../../hooks/useAuth";
 
 import "./Profile.css";
 
 const Profile = () => {
+    useAuth();
 
     const [editing, setEditing] = useState(false);
 
@@ -69,6 +71,7 @@ const Profile = () => {
     });
 
     const [backup, setBackup] = useState(profile);
+
 
     const handleChange = (
         e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
